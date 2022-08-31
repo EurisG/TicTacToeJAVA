@@ -16,6 +16,29 @@ public class TicTacToe {
         int pos = scan.nextInt();
 
         System.out.println(pos);
+        placePiece(gameboard, pos, "player");
+        printGameBoard(gameboard);
+    }
+
+    public static void printGameBoard(char[][] gameboard) {
+
+        for(char[] row : gameboard) {
+            for(char c : row) {
+                System.out.print(c);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void placePiece(char[][] gameboard, int pos, String user) {
+
+                char symbol = ' ';
+            if (user.equals("player")) {
+                 symbol = 'x';
+            } else if (user.equals("cpu")){
+                symbol = 'o';
+            }
+
         switch(pos) {
             case 1:
                 gameboard[0][0] = 'x';
@@ -44,17 +67,6 @@ public class TicTacToe {
             case 9:
                 gameboard[4][4] = 'x';
                 break;
-        }
-        printGameBoard(gameboard);
-    }
-
-    public static void printGameBoard(char[][] gameboard) {
-
-        for(char[] row : gameboard) {
-            for(char c : row) {
-                System.out.print(c);
-            }
-            System.out.println();
         }
     }
 }
